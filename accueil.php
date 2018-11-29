@@ -14,7 +14,7 @@
 		<form id="subscription-form" action=pages/traitement.php method=post>
 					
 	                    <input  name="link"  class="input-email" />
-						<h5>Select the translation language</h5>
+						<h5> test Select the translation language</h5>
 <select name=lang size=5>
 <?php
 include 'pages/connexion.php';
