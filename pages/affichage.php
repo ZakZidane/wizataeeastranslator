@@ -31,6 +31,7 @@ from translation t,edition e, langage l1,langage l2
   and t.id_langage_destination=l2.id_langage
   and e.id_edition='".$id_edition."'";
   $r=$pdo->query($req);
+	
 		if($row=$r->fetch())
 		{$link=	$row[0];
 	$original=	$row[1];
