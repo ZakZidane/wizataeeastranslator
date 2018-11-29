@@ -31,7 +31,6 @@ from translation t,edition e, langage l1,langage l2
   and t.id_langage_destination=l2.id_langage
   and e.id_edition='".$id_edition."'";
   $r=$pdo->query($req);
-	
 		if($row=$r->fetch())
 		{$link=	$row[0];
 	$original=	$row[1];
@@ -46,7 +45,7 @@ echo "<form id=subscription-form  method=post>";
 		
 echo "<br><center><h4 class=titre> Hypertext link ".$link." <br>Translation date:".$dateTranslation." </h4> </center>";
 	
-echo "<table align=center><tr><td class=titre>Oiginal text in ".$nomLangageSource."</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td class=titre>Translated text in ".$nomLangageDest."</td></tr>";
+echo "<table align=center><tr><td class=titre>Original text in ".$nomLangageSource."</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td class=titre>Translated text in ".$nomLangageDest."</td></tr>";
 echo "<tr><td><textarea class=textarea-field name=texteSource  rows=10 cols=60 style='resize: none;' data-role='none'>".$original."</textarea></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>";
 echo "<textarea class=textarea-field name=texteDestination rows=10 cols=60>".$translation."</textarea></td></tr>";
 
