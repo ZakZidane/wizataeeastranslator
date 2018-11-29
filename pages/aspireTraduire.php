@@ -104,8 +104,12 @@ if($fp)
 	   )
    
    $contenu .= trim(strip_tags(fgets($fp,1024)));
-   
-
+   $contenu=htmlspecialchars($contenu, ENT_IGNORE);
+$contenu=str_replace("\\n","",$contenu);
+$contenu=str_replace("\\r","",$contenu);
+$contenu=str_replace("\\\"","",$contenu);
+$contenu=str_replace("\"","",$contenu);
+$contenu=str_replace("\'","",$contenu);
    }
 
  
