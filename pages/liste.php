@@ -44,11 +44,13 @@ echo "<td>$texte</td><td>$date_tr</td><td>$row[2]</td><td>$row[3]</td><td>$date_
 		
 	$i++;
 			  }
-			  echo "<form>";
+			  
 	
 ?>
 </table>
-					
+</form>
+ <form id=subscription-form action=../accueil.php method=post>
+<input type=submit  value=Back name=btnBack class='fancy-button button-line button-white' >					
 </form>			
 		</div>
 	</section>
