@@ -1,7 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>EEAS</title>
+    
+    <meta charset=UTF-8" />
+    
+    <link rel="stylesheet" href="../css/style.css" />
+    </head>
+<body>
 <?php
 
 session_start();
 include '../pages/connexion.php';
+
 $_SESSION['lien'] = $_POST['link'];
 $langage=explode(",",$_POST['lang']);
 $_SESSION['id_langage'] = $langage[0];
@@ -10,6 +21,10 @@ $_SESSION['langage'] = $langage[2];
 
 if(isset($_POST['btnlink']))
 {
+    $file_headers = @get_headers($_POST['link']);
+if($file_headers[0] != 'HTTP/1.1 404 Not Found')
+{echo "link ".$_POST['link']." is not found";
+header("location:../accueil.php");}
 $chemin_fichier =$_POST['link'];
 
 $fp=fopen($chemin_fichier,"r");
@@ -50,7 +65,7 @@ $u.=$_SESSION['code_langage'];
 
 $text = $contenu;
 
- $text  = preg_replace("#(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|([\s\t]//.*)|(^//.*)#", '', $text );
+ //$text  = preg_replace("#(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|([\s\t]//.*)|(^//.*)#", '', $text );
 
 $requestBody = array (
     array (
@@ -201,5 +216,6 @@ $_SESSION['Last_Record']=$row[0]+1;
 
 header("location:traduireText.php");
 }
+
 
 ?>
