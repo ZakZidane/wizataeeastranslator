@@ -163,6 +163,10 @@ echo "<br><textarea class=textarea-field name=texteDestination rows=10 cols=80>"
 echo "<br><input type=submit  value=Save name=btnsauve class='fancy-button button-line button-white'>";
 echo "<input type=submit  value=Edit name=btnModif class='fancy-button button-line button-white'>";
 echo "<input type=submit  value=Back name=btnBack class='fancy-button button-line button-white'>";
+echo "</form>";
+echo "<form  action=sauvegarde.php method=post>";
+$_SESSION['tSource']=$contenu;
+$_SESSION['tTraduit']=$textTraduit;
 echo "<input type=submit  value='Export source' name=btnExport1 class='fancy-button button-line button-white'>";
 echo "<input type=submit  value='Export Translation'  name=btnExport2 class='fancy-button button-line button-white' >";
 
