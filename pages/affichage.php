@@ -45,7 +45,7 @@ echo "<form id=subscription-form  method=post>";
 		
 echo "<br><center><h4 class=titre> Hypertext link ".$link." <br>Translation date:".$dateTranslation." </h4> </center>";
 	
-echo "<table align=center><tr><td class=titre>Original text in ".$nomLangageSource."</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td class=titre>Translated text in ".$nomLangageDest."</td></tr>";
+echo "<table align=center><tr><td class=titre>Oiginal text in ".$nomLangageSource."</td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td class=titre>Translated text in ".$nomLangageDest."</td></tr>";
 echo "<tr><td><textarea class=textarea-field name=texteSource  rows=10 cols=60 style='resize: none;' data-role='none'>".$original."</textarea></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>";
 echo "<textarea class=textarea-field name=texteDestination rows=10 cols=60>".$translation."</textarea></td></tr>";
 
