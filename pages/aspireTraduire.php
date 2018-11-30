@@ -1,30 +1,17 @@
+<!DOCTYPE html>
+<html>
 <head>
  <title>EEAS</title>
 	
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     
 	<link rel="stylesheet" href="../css/style.css" />
 	</head>
 <body>
 <?php
 session_start();
-if(isset($_POST['btnExport1']))
-{
-$f="SourceFile.doc";
-header("Content-Type: application/vnd.ms-word");
-header("content-disposition: attachment;filename=$f");
-echo $_POST['texteSource'];
-}
-if(isset($_POST['btnExport2']))
-{
 
-$f="translatedFile.doc";
-header("Content-Type: application/vnd.ms-word");
-header("content-disposition: attachment;filename=$f");
-
-echo $_POST['texteDestination'];
-
-}					
 
 
 $langage_destination=$_SESSION['id_langage'];
@@ -94,23 +81,29 @@ $contenu = "";
 if($fp)
 {
    while(!feof($fp)){ 
-   if ((strpos(fgets($fp,1024), '<p') !== false)
-	   or (strpos(fgets($fp,1024), '<h1') !== false)
-	   or (strpos(fgets($fp,1024), '<h2') !== false)
-	   or (strpos(fgets($fp,1024), '<h3') !== false)
-	   or (strpos(fgets($fp,1024), '<h4') !== false)
-	   or (strpos(fgets($fp,1024), '<h5') !== false)
-	   or (strpos(fgets($fp,1024), '<h6') !== false)
+ if ((strpos(fgets($fp,1024), '<p') !== false)
+  or (strpos(fgets($fp,1024), '<p>') !== false)
+	   or (strpos(fgets($fp,1024), '<pre') !== false)
+     or (strpos(fgets($fp,1024), '<td') !== false)
+     or  (strpos(fgets($fp,1024), '<li') !== false)
+     or  (strpos(fgets($fp,1024), '<h1>') !== false)
+     or  (strpos(fgets($fp,1024), '<h2>') !== false)
+     or  (strpos(fgets($fp,1024), '<h3>') !== false)
+     or  (strpos(fgets($fp,1024), '<h4>') !== false)
+     or  (strpos(fgets($fp,1024), '<h5>') !== false)
+     or  (strpos(fgets($fp,1024), '<h6>') !== false)
 	   )
-   
-   $contenu .= trim(strip_tags(fgets($fp,1024)));
-   $contenu=htmlspecialchars($contenu, ENT_IGNORE);
+     $contenu .= trim(strip_tags(fgets($fp,1024)));
+  
+
+$contenu=htmlspecialchars($contenu, ENT_IGNORE);
 $contenu=str_replace("\\n","",$contenu);
 $contenu=str_replace("\\r","",$contenu);
 $contenu=str_replace("\\\"","",$contenu);
 $contenu=str_replace("\"","",$contenu);
 $contenu=str_replace("\'","",$contenu);
-   }
+$contenu=str_replace("amp;","",$contenu);
+}
 
  
  echo "<section id=section-subscribe class=subscribe-wrap>
@@ -147,7 +140,7 @@ if (!function_exists('com_create_guid')) {
 }
 $headers = "Content-type: application/json\r\n" .
         "Content-length: " . strlen($content) . "\r\n" .
-        "Ocp-Apim-Subscription-Key: $key\r\n" .
+        "Ocp-Apim-Subscription-Key:$key\r\n" .
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 $options = array (
         'http' => array (
@@ -169,7 +162,7 @@ $options = 0;
     $json = preg_replace("#(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|([\s\t]//.*)|(^//.*)#", '', $c);
     
     if(version_compare(phpversion(), '5.4.0', '>=')) {
-        $json = json_decode($json, $assoc, $depth, $options);
+        $json = json_decode($c, $assoc, $depth, $options);
     }
     elseif(version_compare(phpversion(), '5.3.0', '>=')) {
         $json = json_decode($json, $assoc, $depth);
@@ -179,23 +172,29 @@ $options = 0;
     }
 
 $textTraduit=trim($json[0]->translations[0]->text);
-$textTraduit=str_replace ("   ", "", $textTraduit);
-while (($pos = strpos ($textTraduit, "\s\s")) !== FALSE) {
+$textTraduit=str_replace("   ", "", $textTraduit);
+while (($pos = strpos($textTraduit, "\s\s")) !== FALSE) {
   $textTraduit = substr_replace ($textTraduit, "\s", $pos, 2);
 }
+$textTraduit=htmlspecialchars($textTraduit, ENT_IGNORE);
 
 if($codelangageSource=="zh-Hans" or $codelangageSource=="zh-Hant")
 $contenu=preg_replace("/[a-zA-Z\_]/", "",$contenu);
-
-echo "<br><h4>texte en ".$nomLangageSource.":</h4>";
+ 
+$textTraduit=str_replace("&nbsp;", "", $textTraduit);
+echo "<br><h4>text in ".$nomLangageSource.":</h4>";
 echo "<form id=subscription-form  method=post>";
 echo "<br><textarea class=textarea-field name=texteSource  rows=10 cols=80 style='resize: none;' data-role='none'>".$contenu."</textarea>";
-echo "<br><br><h4>texte en ".$nomLangageDest.":</h4>";
+echo "<br><br><h4>text in ".$nomLangageDest.":</h4>";
 echo "<br><textarea class=textarea-field name=texteDestination rows=10 cols=80>".$textTraduit."</textarea>";
 
 echo "<br><input type=submit  value=Save name=btnsauve class='fancy-button button-line button-white'>";
 echo "<input type=submit  value=Edit name=btnModif class='fancy-button button-line button-white'>";
 echo "<input type=submit  value=Back name=btnBack class='fancy-button button-line button-white'>";
+echo "</form>";
+echo "<form  action=sauvegarde.php method=post>";
+$_SESSION['tSource']=$contenu;
+$_SESSION['tTraduit']=$textTraduit;
 echo "<input type=submit  value='Export source' name=btnExport1 class='fancy-button button-line button-white'>";
 echo "<input type=submit  value='Export Translation'  name=btnExport2 class='fancy-button button-line button-white' >";
 
