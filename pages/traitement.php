@@ -142,7 +142,7 @@ if(isset($_POST['btntext']))
 {
     $_SESSION['texteSource'] = $_POST['texteSource'];
 
-$key = '50f9e8db1cec491f96e24096ba9e4a88';
+$key = '1699156880c04fd794a3ce33c6c86c68';
 
 
 $u = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=";
