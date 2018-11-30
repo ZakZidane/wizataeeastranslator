@@ -16,7 +16,7 @@
 	                    <input  name="link"  class="input-email" placeholder="Insert the translation link"/>
 						
 												
-					<h3>OR Insert the text to translate</h3><br>
+					<h3>Or insert the text to translate</h3><br>
 					<textarea class=textarea-field name=texteSource  rows=10 cols=80 style='resize: none;' data-role='none' placeholder="Insert the text to translate"></textarea>
 
 					<h5>Select the translation language default is english</h5>
