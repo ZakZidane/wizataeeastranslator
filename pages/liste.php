@@ -12,7 +12,6 @@
 					<div class="col-md-10 col-md-offset-1 center section-title">
 						<br><h3>List of the links translated and edited</h3>
 			 <form id=subscription-form action=../pages/affichage.php method=post>
-
 			  <table align=center border=3 bgcolor=white>
 			  <tr bgcolor=green style='color:white'><th>Link</th><th>Translation date</th><th>Source language</th>
 <th>Translation language</th><th>Edition date</th><th>Visualiser</th></tr>
@@ -20,8 +19,11 @@
 	
 <?php
 session_start();
+
 include '../pages/connexion.php';
-			  $r=$pdo->query("select t.link,t.dates,l1.nom_langage,l2.nom_langage,e.dates,e.id_edition from translation t,edition e, langage l1,langage l2 where t.id_translation=e.id_translation and t.id_langage_source=l1.id_langage and t.id_langage_destination=l2.id_langage");
+$req="select t.link,t.dates,l1.nom_langage,l2.nom_langage,e.dates,e.id_edition from translation t,edition e, langage l1,langage l2 where t.id_translation=e.id_translation and t.id_langage_source=l1.id_langage and t.id_langage_destination=l2.id_langage ";		  
+
+$r=$pdo->query($req);
 			  $i=1;
 			  
 			  while($row=$r->fetch())	
@@ -49,6 +51,21 @@ echo "<td>$texte</td><td>$date_tr</td><td>$row[2]</td><td>$row[3]</td><td>$date_
 ?>
 </table>
 </form>
+<form  action=../pages/listeSearch.php method=post>
+<h4>Enter a date range here</h4>
+<input class=titre name=dd  placeholder="From date d/m/Y">
+					
+<input name=df class="titre" placeholder="To date d/m/Y"><br>
+<h4>Or enter a speciic date </h4>
+<input name=ds class="titre" placeholder="Date d/m/Y">
+
+<h4>Or enter a web link </h4>
+<input name=wl class="titre" placeholder=Link><br>					
+<input type=submit  value=search name=btnsearch class='fancy-button button-line button-white' >					
+
+</form>
+
+
  <form id=subscription-form action=../accueil.php method=post>
 <input type=submit  value=Back name=btnBack class='fancy-button button-line button-white' >					
 </form>			
