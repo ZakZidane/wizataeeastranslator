@@ -87,7 +87,7 @@ $contenu=str_replace("\'","",$contenu);
 
 //traduction----------------------------------------------------------
 
-$key = '1699156880c04fd794a3ce33c6c86c68';
+$key = '50f9e8db1cec491f96e24096ba9e4a88';
 
 
 $u = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=";
@@ -120,7 +120,8 @@ $options = array (
         'http' => array (
             'header' => $headers,
             'method' => 'POST',
-            'content' => $content
+            'content' => $content,
+			'category' => "9c0c0196-5575-4437-9d18-5d623691282c-POLISCI"
         )
     );
     $context  = stream_context_create ($options);
