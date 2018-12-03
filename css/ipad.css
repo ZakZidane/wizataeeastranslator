@@ -1,0 +1,68 @@
+#wrapper
+{
+	width:700px;
+}
+
+#container
+{
+	width:500px;
+	position:relative;
+}
+
+section.content>article>section video
+{
+
+	width:400px;
+}
+
+
+/*      Contact.html      */
+
+
+
+#contactForm table
+{
+	width:450px;
+}
+
+
+#contactForm td>input[type="submit"]
+{
+    -webkit-animation-name: none;
+}
+
+#contactForm td>*:focus
+{
+	-webkit-box-shadow:0px 0px 7px black;
+}
+
+#contactForm textarea
+{
+	width:405px;
+	height:300px;
+}
+
+
+
+/*      About.html      */
+
+@-webkit-keyframes 'fall' { 
+    0% { 
+        -webkit-transform:rotate(90deg);
+        -webkit-transform:scale(5) rotate(90deg);
+        opacity:0;
+    } 
+    20%{
+    	 opacity:1;
+    }
+    100% { 
+	    -webkit-transform:rotate(-10deg);
+	    -webkit-transform:scale(1) rotate(-10deg);
+
+    }
+}
+
+.vcard
+{
+	margin: 60px 80px;
+}
