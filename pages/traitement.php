@@ -25,34 +25,28 @@ if(isset($_POST['btnlink']))
 if($file_headers[0] != 'HTTP/1.1 404 Not Found')
 {echo "link ".$_POST['link']." is not found";
 header("location:../accueil.php");}
-$chemin_fichier =$_POST['link'];
-
-$fp=fopen($chemin_fichier,"r");
-
+$lien= $_POST['link'];
 $contenu = "";
-
-
-if($fp)
+$file = new SplFileObject("$lien");
+if($file)
 {
-   while(!feof($fp)){ 
-   if ((strpos(fgets($fp,1024), '<p') !== false)
-	   or (strpos(fgets($fp,1024), '<h1') !== false)
-	   or (strpos(fgets($fp,1024), '<h2') !== false)
-	   or (strpos(fgets($fp,1024), '<h3') !== false)
-	   or (strpos(fgets($fp,1024), '<h4') !== false)
-	   or (strpos(fgets($fp,1024), '<h5') !== false)
-	   or (strpos(fgets($fp,1024), '<h6') !== false)
-	   )
-   $contenu .= trim(strip_tags(fgets($fp,1024)));
-   $contenu=htmlspecialchars($contenu, ENT_IGNORE);
+while (!$file->eof()) 
+    $contenu.= $file->fgetss("<p>");
+ 
+preg_match_all("/<p[^>]*>(.*)<\/p>/i", $contenu, $trouve, PREG_SET_ORDER);
+$contenu="";
+foreach ($trouve as $val) 
+    $contenu.=$val[0].$val[1];
+
+$contenu = trim(strip_tags($contenu));
+$contenu=htmlspecialchars($contenu, ENT_IGNORE);
 $contenu=str_replace("\\n","",$contenu);
 $contenu=str_replace("\\r","",$contenu);
-$contenu=str_replace("\\\"","",$contenu);
-$contenu=str_replace("\"","",$contenu);
-$contenu=str_replace("\'","",$contenu);
-   }
+$contenu=str_replace("<p>","",$contenu);
+$contenu=str_replace("</p>","",$contenu);
+$contenu=str_replace("'","",$contenu);
 
- 
+
 
 
 //traduction----------------------------------------------------------
