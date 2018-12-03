@@ -70,41 +70,28 @@ VALUES('$d','$textSource','$textTraduit','$last_id')";
 }}
 header("Refresh: 3; url=aspireTraduire.php" );
 }
-
-$chemin_fichier = $lien;
-
-$fp=fopen($chemin_fichier,"r");
-
 $contenu = "";
-
-
-if($fp)
+$file = new SplFileObject("$lien");
+if($file)
 {
-   while(!feof($fp)){ 
- if ((strpos(fgets($fp,1024), '<p') !== false)
-  or (strpos(fgets($fp,1024), '<p>') !== false)
-	   or (strpos(fgets($fp,1024), '<pre') !== false)
-     or (strpos(fgets($fp,1024), '<td') !== false)
-     or  (strpos(fgets($fp,1024), '<li') !== false)
-     or  (strpos(fgets($fp,1024), '<h1>') !== false)
-     or  (strpos(fgets($fp,1024), '<h2>') !== false)
-     or  (strpos(fgets($fp,1024), '<h3>') !== false)
-     or  (strpos(fgets($fp,1024), '<h4>') !== false)
-     or  (strpos(fgets($fp,1024), '<h5>') !== false)
-     or  (strpos(fgets($fp,1024), '<h6>') !== false)
-	   or  (strpos(fgets($fp,1024), '<span') !== false)
-     )
-     $contenu .= trim(strip_tags(fgets($fp,1024)));
-  
+while (!$file->eof()) 
+    $contenu.= $file->fgetss("<p>");
+ 
+preg_match_all("/<p[^>]*>(.*)<\/p>/i", $contenu, $trouve, PREG_SET_ORDER);
+$contenu="";
+foreach ($trouve as $val) 
+    $contenu.=$val[0].$val[1];
 
+$contenu = trim(strip_tags($contenu));
 $contenu=htmlspecialchars($contenu, ENT_IGNORE);
 $contenu=str_replace("\\n","",$contenu);
 $contenu=str_replace("\\r","",$contenu);
-$contenu=str_replace("\\\"","",$contenu);
-$contenu=str_replace("\"","",$contenu);
-$contenu=str_replace("\'","",$contenu);
-$contenu=str_replace("amp;","",$contenu);
-}
+$contenu=str_replace("<p>","",$contenu);
+$contenu=str_replace("</p>","",$contenu);
+$contenu=str_replace("'","",$contenu);
+
+
+
 
  
  echo "<section id=section-subscribe class=subscribe-wrap>
@@ -190,15 +177,15 @@ echo "<br><textarea class=textarea-field name=texteSource  rows=10 cols=80 style
 echo "<br><br><h4>text in ".$nomLangageDest.":</h4>";
 echo "<br><textarea class=textarea-field name=texteDestination rows=10 cols=80>".$textTraduit."</textarea>";
 
-echo "<br><input type=submit  value=Save name=btnsauve class='fancy-button button-line button-white'>";
-echo "<input type=submit  value=Edit name=btnModif class='fancy-button button-line button-white'>";
-echo "<input type=submit  value=Back name=btnBack class='fancy-button button-line button-white'>";
+echo "<br><input type=submit  value=Save name=btnsauve class='fancy-button button-sub button-white'>";
+echo "<input type=submit  value=Edit name=btnModif class='fancy-button button-sub button-white'>";
+echo "<input type=submit  value=Back name=btnBack class='fancy-button button-sub button-white'>";
 echo "</form>";
 echo "<form  action=sauvegarde.php method=post>";
 $_SESSION['tSource']=$contenu;
 $_SESSION['tTraduit']=$textTraduit;
-echo "<input type=submit  value='Export source' name=btnExport1 class='fancy-button button-line button-white'>";
-echo "<input type=submit  value='Export Translation'  name=btnExport2 class='fancy-button button-line button-white' >";
+echo "<input type=submit  value='Export source' name=btnExport1 class='fancy-button button-sub button-white'>";
+echo "<input type=submit  value='Export Translation'  name=btnExport2 class='fancy-button button-sub button-white' >";
 
 echo "</form></div>	</div></section>";
 }
