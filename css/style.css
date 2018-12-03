@@ -53,7 +53,7 @@ h4 {
     line-height: 30px;
 }
 
-h5 {
+h5 {color:blue;
     font-size: 18px;
 	line-height: 25px;
 }
@@ -1061,3 +1061,17 @@ background:url("../images/search.png") left no-repeat;
 	color: blue;
 	font-weight:bold
 }
+.carac{
+	font-size: 16px;
+	color: blue;
+}
+.button-sub {
+	font-size: 20px;
+	background: #e64600;
+	display: inline-block;
+	font-weight: 400;
+	border-radius: 4px;
+	border: 1px solid;
+	margin: 5px;
+	overflow: visible;
+	}
