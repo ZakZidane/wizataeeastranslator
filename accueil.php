@@ -16,11 +16,19 @@
 	                    <input  name="link"  class="input-email" placeholder="Insert the translation link"/>
 						
 												
-					<h3>Or insert the text to translate</h3><br>
+					<h3>Or Insert the text to translate</h3><br>
 					<textarea class=textarea-field name=texteSource  rows=10 cols=80 style='resize: none;' data-role='none' placeholder="Insert the text to translate"></textarea>
+					<br>
 
-					<h5>Select the translation language default is english</h5>
-					<select name=lang size=5>
+					<span class=titre>Select the translation language default is english</span>
+					<table align="center">
+						<tr><td>
+							<input type="submit"  value="Translate text" name="btntext" class="fancy-button button-sub button-white large zoom">
+						
+						</td>
+						<td>
+
+					<select class=carac name=lang size=5>
 						<?php
 						include 'pages/connexion.php';
 									  $r=$pdo->query("select * from langage ");
@@ -34,17 +42,27 @@
 
 						?>
 					</select>
-				<br>
-						<input type="submit"  value="Translate text" name="btntext" class="fancy-button button-line button-white large zoom">
-						<input type="submit"  value="Translate the web page"  name="btnlink" class="fancy-button button-line button-white large zoom">
-											
+
+					
+						</td>
+						<td>
+						<input type="submit"  value="Translate the web page"  name="btnlink" class="fancy-button button-sub button-white large zoom">
+					</td>
+				    </tr>
+						
+					<tr>
+				    
+					<td style="padding-left:120px" colspan=3>				
 				</form>
 				<form " action=pages/liste.php method=post>
 		
-					<input type="submit"  value="List of links translated" name="btnlist" class="fancy-button button-line button-white large zoom">
+					<input  type="submit"  value="List of links translated" name="btnlist" class="fancy-button button-sub button-white large zoom">
 						
 				</form>
+				</td>
 				
+				    </tr>
+				</table>
 			</div>
 		</div>
 	</section>
