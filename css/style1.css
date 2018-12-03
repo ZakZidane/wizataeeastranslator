@@ -1,0 +1,508 @@
+*
+{
+	margin:0px;
+	padding:0px;
+	color:#222;
+}
+
+a
+{
+	color:#333;
+}
+
+footer, aside, header, section
+{
+	display:block;	
+}
+
+body
+{
+	background-color:#33ABCF;
+	background-repeat:no-repeat;
+	background-image:-webkit-gradient(radial, 30% 0, 50, 30% 0, 600,from(#49D2F4),to(#33ABCF)) ;
+	background-image:-moz-radial-gradient(400px 0px, circle closest-corner, #49D2F4 0%,#33ABCF 100%);
+	font-family:"Helvetica";
+	font-size:0.9em;
+	
+}
+
+#wrapper
+{
+	width:900px;
+	min-height:500px;
+	background-color:#eee;
+	background-repeat:no-repeat;
+	background-image:-webkit-gradient(radial, 20% 0, 50, 20% 0, 600,from(#fff),to(#eee));
+	background-image:-moz-radial-gradient(200px 0px, circle closest-corner, #fff 0%, #eee 100%);
+	
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	-o-border-radius:10px;
+	border-radius:10px;
+	
+	border:1px solid #fff;
+	
+	-webkit-box-shadow:0px 0px 30px RGBa(0,0,0,0.4);
+	-moz-box-shadow:0px 0px 30px RGBa(0,0,0,0.4);
+	-o-box-shadow:0px 0px 30px RGBa(0,0,0,0.4);
+	box-shadow:0px 0px 30px RGBa(0,0,0,0.4);
+	
+	position:relative;
+	
+	-webkit-transition: -webkit-transform 3s ease-in;
+	-moz-transition: -moz-transform 3s ease-in;
+	-o-transition: -o-transform 3s ease-in;
+	transition: transform 3s ease-in;
+	
+	margin:50px auto;
+}
+
+@-webkit-keyframes 'backgroundMove' { 
+    0% { 
+        background-position: -100px -400px;
+    } 
+    15% { 
+       background-position: 0px -100px;
+    } 
+    30% { 
+        background-position: -300px -80px;
+    } 
+    45% { 
+		background-position: -500px -140px;
+    } 
+    60% { 
+		background-position: -700px -100px;
+    } 
+    75% { 
+		background-position: -900px -150px;
+    } 
+    100% { 
+	 	background-position: -100px -400px;
+    }
+}
+
+
+
+
+#wrapper>header
+{
+	background:url("../images/paysage.jpg");
+	background-position: -100px -400px;
+	
+	/*CSS3 keyframes animation*/ 
+    -webkit-animation-name: backgroundMove; 
+    -webkit-animation-duration: 60s; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: ease-in-out;
+	
+	-webkit-box-shadow:0px 0px 20px black inset;
+	-moz-box-shadow:0px 0px 20px black inset;
+	-o-box-shadow:0px 0px 20px black inset;
+	box-shadow:0px 0px 20px black inset;
+	
+	
+	border-top-left-radius:10px;
+	border-top-right-radius:10px;
+	border-bottom:1px solid #fff;
+	width:100%;
+	height:120px;	
+	
+}
+
+
+#wrapper>header a
+{
+	text-decoration:none;
+	color:inherit;
+}
+
+header hgroup h1
+{
+	
+	font-family:"Reenie Beanie";
+	
+	text-shadow:0px 1px 1px black, 0px 0px 10px black;
+	font-size:60px;
+	position:relative;
+	top: 20px;
+	left:30px;
+	color:white;
+	float:left;
+}
+
+header hgroup #baseline
+{
+	font-family:"Cantarell";
+	
+	text-shadow:0px 1px 1px black, 0px 0px 10px black;
+	position:relative;
+	font-size:1.4em;
+	top: 20px;
+	left:300px;
+	color:white;
+	clear:both;
+	float:left;
+}
+
+
+
+
+#wrapper>section
+{
+	width:700px;
+	border-right:1px solid #ccc;
+}
+
+#wrapper>aside
+{
+	float:right;
+	width:198px;
+	height:100%;
+	background:#33ABCF;
+}
+
+#wrapper>aside a
+{
+	text-decoration:none;
+}
+
+#wrapper>aside ul
+{
+	list-style-type:none;
+}
+
+#wrapper>aside ul li
+{
+	padding:0px;
+	margin:0px;
+	height:30px;
+	line-height:30px;
+	font-size:30px;
+	font-family:"Reenie Beanie";
+	text-align:center;
+	padding:5px 0px;
+	border-bottom:1px solid #fff;
+	
+	-webkit-text-shadow:0px 0px 40px RGBa(255,255,255,0);
+	-moz-text-shadow:0px 0px 40px RGBa(255,255,255,0);
+	-o-text-shadow:0px 0px 40px RGBa(255,255,255,0);
+	text-shadow:0px 0px 40px RGBa(255,255,255,0);
+	
+	background:-webkit-gradient(radial, 50% -30, 0, 50% -30, 100,from(#33ABCF),to(#33ABCF))  #33ABCF;
+	
+	-webkit-transition:background 2s linear;
+}
+
+#wrapper>aside a
+{
+	color:white;
+	
+}
+
+#wrapper>aside ul li:hover
+{
+	-webkit-text-shadow:0px 0px 40px RGBa(255,255,255,1);
+	-moz-text-shadow:0px 0px 40px RGBa(255,255,255,1);
+	-o-text-shadow:0px 0px 40px RGBa(255,255,255,1);
+	text-shadow:0px 0px 40px RGBa(255,255,255,1);
+	
+	background-color:#33ABCF;
+	background-image:-webkit-gradient(radial, 50% -30, 0, 50% -30, 100,from(#59e2ff),to(#33ABCF));
+	background-image:-moz-radial-gradient(50% -30px, circle closest-corner, #59e2ff 0%, #33ABCF 100%);
+}
+
+#container
+{
+	width:700px;
+	position:relative;
+}
+
+section.content>article
+{
+	padding:5px 20px 20px 20px;
+}
+
+section.content>article>header
+{
+	border-bottom:1px solid #ccc;
+	margin-bottom:10px;
+}
+
+section.content>article>header h2
+{
+	display:inline;
+	font-family:"Cantarell";
+	font-size:30px;
+	position:relative;
+	left:10px;
+}
+
+section.content>article>header>span.date
+{
+	float:right;
+	line-height:50px;
+	position:relative;
+	right:10px;
+}
+
+section.content>article>section video
+{
+	display:block;
+	width:600px;
+	position:relative;
+	margin:20px auto;
+}
+
+footer
+{
+	width:700px;
+	border-right:1px solid #ccc;
+	text-align:center;
+	font-size:11px;
+	color:#777;
+}
+
+/*      Contact.html      */
+
+#contactForm
+{
+	width:100%;
+	margin-top:10px;
+}
+
+#contactForm table
+{
+	position:relative;
+	margin:auto;
+	width:600px;
+}
+
+#contactForm tr
+{
+	margin:5px auto;
+}
+
+#contactForm td.label
+{
+	width:100px;
+	text-align:right;
+}
+
+#contactForm td.input
+{
+	padding:5px 0px;
+}
+
+#contactForm td.label label
+{
+	margin-right:15px;
+}
+
+#contactForm td>input:valid
+{
+	background:#aea;
+}
+
+#contactForm td>input:invalid
+{
+	background:#fee;
+}
+
+#contactForm td>input
+{
+	width:90%;
+	position:relative;
+	height:25px;
+	margin:auto;
+	border:1px solid black;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	border-radius:5px;
+	padding:0px 5px;
+	background:white;
+	font-size:1.2em;
+	
+	outline:none;
+	
+	-webkit-transition:background 1s ease-in-out;
+}
+
+
+
+
+
+@-webkit-keyframes 'respiration' { 
+    0% { 
+        -webkit-box-shadow:0px 0px 0px black;
+    } 
+    
+    50% { 
+		-webkit-box-shadow:0px 0px 15px black;
+    } 
+    
+    100% { 
+		 -webkit-box-shadow:0px 0px 0px black;
+    }
+    
+}
+
+
+#contactForm td>input[type="submit"]
+{
+	background:white;
+	display:block;
+	
+	
+	
+	width:300px;
+	
+	-webkit-box-shadow:0px 0px 15px black;
+	-moz-box-shadow:0px 0px 15px black;
+	-o-box-shadow:0px 0px 15px black;
+	box-shadow:0px 0px 15px black;
+	
+	margin:20px auto;
+	position:relative;
+	
+    -webkit-animation-name: respiration; 
+    -webkit-animation-duration: 2s; 
+    -webkit-animation-iteration-count: infinite; 
+    -webkit-animation-timing-function: ease-out;
+}
+
+
+
+
+#contactForm td>input[type="submit"]:active
+{
+	-webkit-box-shadow:0px 0px 0px black;
+	-moz-box-shadow:0px 0px 0px black;
+	-o-box-shadow:0px 0px 0px black;
+	box-shadow:0px 0px 0px black;
+}
+
+#contactForm td>*:focus
+{
+	-webkit-box-shadow:0px 0px 7px black;
+	-moz-box-shadow:0px 0px 7px black;
+	-o-box-shadow:0px 0px 7px black;
+	box-shadow:0px 0px 7px black;
+}
+
+#contactForm textarea
+{
+	border:1px solid black;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+	-o-border-radius:5px;
+	border-radius:5px;
+	padding:5px 5px;
+	
+	display:block;
+	position:relative;
+	width:505px;
+	
+	
+	height:400px;
+	
+	
+	
+	left:9px;
+	margin:auto;
+	
+	outline:none;
+}
+
+
+/*      About.html      */
+
+@-webkit-keyframes 'fall' { 
+    0% { 
+        -webkit-transform:rotate(90deg);
+        -webkit-transform:scale(10) rotate(90deg);
+        opacity:0;
+    } 
+    20%{
+    	 opacity:1;
+    }
+    100% { 
+	    -webkit-transform:rotate(-10deg);
+	    -webkit-transform:scale(1) rotate(-10deg);
+    }
+    
+}
+
+.vcard
+{
+	width:350px;
+	height:200px;	
+	
+	margin: 60px auto;
+	
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;
+	-o-border-radius:3px;
+	border-radius:3px;
+	border:1px solid #aaa;
+	
+	-webkit-box-shadow:0px 0px 40px black;
+	-moz-box-shadow:0px 0px 40px black;
+	-o-box-shadow:0px 0px 40px black;
+	box-shadow:0px 0px 40px black;
+	
+	-webkit-transform:rotate(-10deg);
+	-moz-transform:rotate(-10deg);
+	-o-transform:rotate(-10deg);
+	transform:rotate(-10deg);
+	
+	background:white;
+	
+	-webkit-animation-name: fall; 
+    -webkit-animation-duration: 3s;
+    -webkit-animation-timing-function: ease-out;
+	
+	overflow:hidden;
+}
+
+.vcard table
+{
+	width:100%;
+	height:100%;
+	border-collapse:collapse;
+}
+
+
+.vcard table td
+{
+	//border:1px solid black;
+}
+
+td.avatar
+{
+	height:120px;
+	width:140px;
+}
+
+td.resume
+{
+	text-align:center;
+}
+
+.vcard tr
+{
+	height:10px;
+}
+
+.vcard .adr
+{
+	font-size:10px;	
+	position:relative;
+	left:10px;
+}
+
+.vcard .photo
+{
+	margin:20px;	
+}
+
