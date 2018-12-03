@@ -56,7 +56,7 @@ echo "<tr><td class=titre>Edited text source in ".$nomLangageSource."</td><td>&n
 echo "<tr><td><textarea class=textarea-field name=texteSource  rows=10 cols=60 style='resize: none;' data-role='none'>".$source_edited."</textarea></td><td>&nbsp;&nbsp;&nbsp;&nbsp;</td><td>";
 echo "<textarea class=textarea-field name=texteDestination rows=10 cols=60>".$translation_edited."</textarea></td></tr></table>";
 
-echo "<center><input type=submit  value=Back name=btnBack class='fancy-button button-line button-white' ></center>";
+echo "<center><input type=submit  value=Back name=btnBack class='fancy-button button-sub button-white' ></center>";
 
 }
 ?>
