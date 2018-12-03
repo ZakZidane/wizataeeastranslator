@@ -75,8 +75,8 @@ echo "<td>$texte</td><td>$date_tr</td><td>$row[2]</td><td>$row[3]</td><td>$date_
 
 
 
- <form id=subscription-form action=../accueil.php method=post>
-<input type=submit size=30 value=Back name=btnBack class='fancy-button button-line button-white' >					
+ <form id=subscription-form action=liste.php method=post>
+<input type=submit size=30 value=Back name=btnBack class='fancy-button button-sub button-white' >					
 </form>			
 		</div>
 	</section>
