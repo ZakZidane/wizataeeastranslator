@@ -177,7 +177,7 @@ echo "<br><textarea class=textarea-field name=texteSource  rows=10 cols=80 style
 echo "<br><br><h4>text in ".$nomLangageDest.":</h4>";
 echo "<br><textarea class=textarea-field name=texteDestination rows=10 cols=80>".$textTraduit."</textarea>";
 	
-echo "<br><p>"Please click <b>Save</b> then click <b>Edit</b> to save your translation and edition"</p>";
+echo "<br><p>Please click <b>Save</b> then click <b>Edit</b> to save your translation and edition</p>";
 
 echo "<br><input type=submit  value=Save name=btnsauve class='fancy-button button-sub button-white'>";
 echo "<input type=submit  value=Edit name=btnModif class='fancy-button button-sub button-white'>";
