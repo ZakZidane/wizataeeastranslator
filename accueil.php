@@ -26,7 +26,7 @@
 					<textarea class=textarea-field name=texteSource  rows=10 cols=80 style='resize: none;' data-role='none' placeholder="Insert the text to translate"></textarea>
 					<br>
 
-					<span class=titre>Select the translation language default is english</span>
+					<span class=titre>Please select the translation language (default is english)</span>
 					<table align="center">
 						<tr><td>
 							<input type="submit"  value="Translate text" name="btntext" class="fancy-button button-sub button-white large zoom">
