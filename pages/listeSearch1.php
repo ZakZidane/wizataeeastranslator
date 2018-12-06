@@ -35,7 +35,7 @@ else if(!empty($_POST['ds']))
 {$date_spec=explode("/",$_POST['ds']);
 $date_s=$date_spec[2]."-".$date_spec[1]."-".$date_spec[0];	
 	 
-	$req="select t.link,t.dates,l1.nom_langage,l2.nom_langage,t.id_translation from translation t, langage l1,langage l2 where  t.id_langage_source=l1.id_langage and t.id_langage_destination=l2.id_langage and e.dates='".$date_s."'";
+	$req="select t.link,t.dates,l1.nom_langage,l2.nom_langage,t.id_translation from translation t, langage l1,langage l2 where  t.id_langage_source=l1.id_langage and t.id_langage_destination=l2.id_langage and t.dates='".$date_s."'";
 	}
 else if(!empty($_POST['wl']))
 			  
