@@ -11,7 +11,9 @@
 		
 					<div class="col-md-10 col-md-offset-1 center section-title">
 					<br><font color="#08088A"><h1>Welcome to</h1></font>
-					<br><h1>EEAS Customed translator</h1>
+				<font color="#08088A"><h1>EEAS Customed translator</h1></font>
+
+			
 
 
 						<br><h3>Please insert the your link and choose a translation language bellow</h3>
