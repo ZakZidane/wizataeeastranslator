@@ -10,7 +10,7 @@
 	<section id="section-subscribe" class="subscribe-wrap">
 		
 					<div class="col-md-10 col-md-offset-1 center section-title">
-						<h3>Insert the translation link</h3>
+						<br><h3>Insert the translation link</h3>
 				<form id="subscription-form" action=pages/traitement.php method=post>
 					
 	                    <input  name="link"  class="input-email" placeholder="Insert the translation link"/>
