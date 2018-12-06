@@ -10,11 +10,13 @@
 	<section id="section-subscribe" class="subscribe-wrap">
 		
 					<div class="col-md-10 col-md-offset-1 center section-title">
-						<table align="center"><tr><td><h3>List of the links translated and edited</h3></td><td>
-						<form id=subscription-form action=../accueil.php method=post>
+						<table align="center"><tr><td><h3>List of the links translated </h3>
+				</td><td>
+ <form id=subscription-form action=../accueil.php method=post>
 <input type=submit  value="Back to home page" name=btnBack class='fancy-button button-sub button-white' >					
 </form></td></tr></table>
-						<form  action=../pages/listeSearch.php method=post>
+
+			<form  action=../pages/listeSearch1.php method=post>
 <h4>Enter a date range here</h4>
 <input class=titre name=dd  placeholder="From date d/m/Y">
 					
@@ -28,18 +30,20 @@
 
 </form>
 
- 
-			 <form id=subscription-form action=../pages/affichage.php method=post>
+
+	
+			 <form id=subscription-form action=../pages/affichage1.php method=post>
 			  <table align=center border=3 bgcolor=white>
 			  <tr bgcolor=green style='color:white'><th>Link</th><th>Translation date</th><th>Source language</th>
-<th>Translation language</th><th>Edition date</th><th>Visualiser</th></tr>
+<th>Translation language</th><th>Visualiser</th></tr>
 
 	
 <?php
 session_start();
 
 include '../pages/connexion.php';
-$req="select t.link,t.dates,l1.nom_langage,l2.nom_langage,e.dates,e.id_edition from translation t,edition e, langage l1,langage l2 where t.id_translation=e.id_translation and t.id_langage_source=l1.id_langage and t.id_langage_destination=l2.id_langage order by e.id_translation desc";		  
+$req="select t.link,t.dates,l1.nom_langage,l2.nom_langage,t.id_translation from translation t, langage l1,langage l2 where  t.id_langage_source=l1.id_langage and t.id_langage_destination=l2.id_langage 
+order by t.id_translation desc";		  
 
 $r=$pdo->query($req);
 			  $i=1;
@@ -58,9 +62,8 @@ $texte = substr($texte, 0, $max_caracteres);
 }
 $date_trans=new DateTime($row[1]);
 $date_tr=$date_trans->format('d/m/Y');
-$date_edit=new DateTime($row[4]);
-$date_ed=$date_edit->format('d/m/Y');
-echo "<td>$texte</td><td>$date_tr</td><td>$row[2]</td><td>$row[3]</td><td>$date_ed</td><td ><input class=loupe value='   'type=submit name=bouton".$row[5]."></td></tr>";
+
+echo "<td>$texte</td><td>$date_tr</td><td>$row[2]</td><td>$row[3]</td><td ><input class=loupe value='   ' type=submit name=bouton".$row[4]."></td></tr>";
 		
 	$i++;
 			  }
@@ -69,7 +72,7 @@ echo "<td>$texte</td><td>$date_tr</td><td>$row[2]</td><td>$row[3]</td><td>$date_
 ?>
 </table>
 </form>
-			
+		
 		</div>
 	</section>
 	

@@ -12,8 +12,10 @@
 
 session_start();
 include '../pages/connexion.php';
-
+if(!empty($_POST['link']))
 $_SESSION['lien'] = $_POST['link'];
+else
+$_SESSION['lien'] ='text';
 $langage=explode(",",$_POST['lang']);
 $_SESSION['id_langage'] = $langage[0];
 $_SESSION['code_langage'] = $langage[1];
@@ -58,7 +60,7 @@ $u = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to
 $u.=$_SESSION['code_langage'];
 
 $text = $contenu;
-
+$_SESSION['texteSource'] = $contenu;
  //$text  = preg_replace("#(/\*([^*]|[\r\n]|(\*+([^*/]|[\r\n])))*\*+/)|([\s\t]//.*)|(^//.*)#", '', $text );
 
 $requestBody = array (
@@ -111,6 +113,16 @@ $options = 0;
     else {
         $json = json_decode($json, $assoc);
     }
+$textTraduit=trim($json[0]->translations[0]->text);
+$textTraduit=str_replace ("   ", "", $textTraduit);
+while (($pos = strpos ($textTraduit, "\s\s")) !== FALSE) {
+  $textTraduit = substr_replace ($textTraduit, "\s", $pos, 2);
+}
+
+if($codelangageSource=="zh-Hans" or $codelangageSource=="zh-Hant")
+$textTraduit=preg_replace("/[a-zA-Z\_]/", "",$textTraduit);
+$_SESSION['texteTraduit']=$textTraduit;
+
 $_SESSION['codelangSource'] =$json[0]->detectedLanguage->language ;
 
 $req="select * from langage where code='".$_SESSION['codelangSource']."'";
@@ -124,7 +136,7 @@ $r=$pdo->query($req);
 if($row=$r->fetch())		  
 $_SESSION['Last_Record']=$row[0]+1;
 
-header("location:aspireTraduire.php");
+header("location:TraductionAffichage.php");
 }					
 else
 echo "Impossible d'ouvrir la page $chemin_fichier";
@@ -197,6 +209,15 @@ $options = 0;
     else {
         $json = json_decode($json, $assoc);
     }
+$textTraduit=trim($json[0]->translations[0]->text);
+$textTraduit=str_replace ("   ", "", $textTraduit);
+while (($pos = strpos ($textTraduit, "\s\s")) !== FALSE) {
+  $textTraduit = substr_replace ($textTraduit, "\s", $pos, 2);
+}
+
+if($codelangageSource=="zh-Hans" or $codelangageSource=="zh-Hant")
+$textTraduit=preg_replace("/[a-zA-Z\_]/", "",$textTraduit);
+$_SESSION['texteTraduit']=$textTraduit;
 $_SESSION['codelangSource'] =$json[0]->detectedLanguage->language ;
 
 $req="select * from langage where code='".$_SESSION['codelangSource']."'";
@@ -210,7 +231,7 @@ $r=$pdo->query($req);
 if($row=$r->fetch())          
 $_SESSION['Last_Record']=$row[0]+1;
 
-header("location:traduireText.php");
+header("location:TraductionAffichage.php");
 }
 
 
