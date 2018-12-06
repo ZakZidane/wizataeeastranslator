@@ -52,7 +52,7 @@
 					
 						</td>
 						<td>
-						<input type="submit"  value="Translate the web page"  name="btnlink" class="fancy-button button-sub button-white large zoom">
+						<input type="submit"  value="Translate the web site"  name="btnlink" class="fancy-button button-sub button-white large zoom">
 					</td>
 				    </tr>
 						
@@ -63,12 +63,12 @@
 					<td style="padding-left:120px" colspan=2>	
 				<form " action=pages/liste.php method=post>
 		
-					<input  type="submit"  value="List of links translated and edited" name="btnlist" class="fancy-button button-sub button-white large zoom">
+					<input  type="submit"  value="List of edited translations" name="btnlist" class="fancy-button button-sub button-white large zoom">
 						
 				</form></td><td>
 				<form " action=pages/liste1.php method=post>
 		
-					<input  type="submit"  value="List of links translated" name="btnlist1" class="fancy-button button-sub button-white large zoom">
+					<input  type="submit"  value="List of none edited translations" name="btnlist1" class="fancy-button button-sub button-white large zoom">
 						
 				</form>
 			
