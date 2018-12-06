@@ -10,7 +10,7 @@
 	<section id="section-subscribe" class="subscribe-wrap">
 		
 					<div class="col-md-10 col-md-offset-1 center section-title">
-						<br><h3>Insert the translation link</h3>
+						<h3>Insert the translation link</h3>
 				<form id="subscription-form" action=pages/traitement.php method=post>
 					
 	                    <input  name="link"  class="input-email" placeholder="Insert the translation link"/>
@@ -50,15 +50,22 @@
 					</td>
 				    </tr>
 						
-					<tr>
-				    
-					<td style="padding-left:120px" colspan=3>				
+								
 				</form>
+				<tr>
+				    
+					<td style="padding-left:120px" colspan=2>	
 				<form " action=pages/liste.php method=post>
 		
-					<input  type="submit"  value="List of links translated" name="btnlist" class="fancy-button button-sub button-white large zoom">
+					<input  type="submit"  value="List of links translated and edited" name="btnlist" class="fancy-button button-sub button-white large zoom">
+						
+				</form></td><td>
+				<form " action=pages/liste1.php method=post>
+		
+					<input  type="submit"  value="List of links translated" name="btnlist1" class="fancy-button button-sub button-white large zoom">
 						
 				</form>
+			
 				</td>
 				
 				    </tr>
@@ -69,3 +76,5 @@
 	<!--=== Subscribe section Ends ===-->
 	
 </body>
+
+
