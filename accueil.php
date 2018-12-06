@@ -10,13 +10,15 @@
 	<section id="section-subscribe" class="subscribe-wrap">
 		
 					<div class="col-md-10 col-md-offset-1 center section-title">
-						<br><h3>Insert the translation link</h3>
+					<br><h3>Welcome to EEAS Customed translator</h3>
+
+						<br><h3>Please insert the your link and choose a translation language bellow</h3>
 				<form id="subscription-form" action=pages/traitement.php method=post>
 					
 	                    <input  name="link"  class="input-email" placeholder="Insert the translation link"/>
 						
 												
-					<h3>Or Insert the text to translate</h3><br>
+					<h3>Or Insert a text</h3><br>
 					<textarea class=textarea-field name=texteSource  rows=10 cols=80 style='resize: none;' data-role='none' placeholder="Insert the text to translate"></textarea>
 					<br>
 
