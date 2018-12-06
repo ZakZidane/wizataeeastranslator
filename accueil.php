@@ -10,13 +10,13 @@
 	<section id="section-subscribe" class="subscribe-wrap">
 		
 					<div class="col-md-10 col-md-offset-1 center section-title">
-					<br><font color="#08088A"><h3>Welcome to</h3></font>
+					<br><h3>Welcome to</h3>
 				<font color="#08088A"><h2>EEAS Customed translator</h2></font>
 
 			
 
 
-						<br><h3>Please insert the your link and choose a translation language bellow</h3>
+						<br><h3>Please insert your link and choose a translation language bellow</h3>
 				<form id="subscription-form" action=pages/traitement.php method=post>
 					
 	                    <input  name="link"  class="input-email" placeholder="Insert the translation link"/>
