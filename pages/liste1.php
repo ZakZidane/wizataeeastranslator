@@ -10,7 +10,7 @@
 	<section id="section-subscribe" class="subscribe-wrap">
 		
 					<div class="col-md-10 col-md-offset-1 center section-title">
-						<table align="center"><tr><td><h3>List of the links translated </h3>
+						<table align="center"><tr><td><h3>List of the saved translations</h3>
 				</td><td>
  <form id=subscription-form action=../accueil.php method=post>
 <input type=submit  value="Back to home page" name=btnBack class='fancy-button button-sub button-white' >					
@@ -18,11 +18,11 @@
 
 			<form  action=../pages/listeSearch1.php method=post>
 <h4>Enter a date range here</h4>
-<input class=titre name=dd  placeholder="From date d/m/Y">
+<input class=titre name=dd  placeholder="From date d/m/y">
 					
-<input name=df class="titre" placeholder="To date d/m/Y"><br>
-<h4>Or enter a speciic date </h4>
-<input name=ds class="titre" placeholder="Date d/m/Y">
+<input name=df class="titre" placeholder="to date d/m/y"><br>
+<h4>Or enter a specific date </h4>
+<input name=ds class="titre" placeholder="Date d/m/y">
 
 <h4>Or enter a web link </h4>
 <input name=wl class="titre" placeholder=Link><br>					
