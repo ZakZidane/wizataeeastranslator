@@ -10,7 +10,7 @@
 	<section id="section-subscribe" class="subscribe-wrap">
 		
 					<div class="col-md-10 col-md-offset-1 center section-title">
-					<br><h1><font color="#08088A">Welcome to </font></h1>
+					<br><font color="#08088A"><h1>Welcome to</h1></font>
 					<br><h1>EEAS Customed translator</h1>
 
 
