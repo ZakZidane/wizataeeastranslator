@@ -87,7 +87,7 @@ $contenu=str_replace("\'","",$contenu);
 
 //traduction----------------------------------------------------------
 
-$key = '1699156880c04fd794a3ce33c6c86c68';
+$key = '1a81e47191eb4038bd40b5e45cfd0f02';
 
 
 $u = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=";
