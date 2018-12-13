@@ -53,7 +53,7 @@ $contenu=str_replace("'","",$contenu);
 
 //traduction----------------------------------------------------------
 
-$key = '1a81e47191eb4038bd40b5e45cfd0f02';
+$key = '375a5935935c40e19a11f0fbe033e6a8';
 
 
 $u = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=";
@@ -149,7 +149,7 @@ if(isset($_POST['btntext']))
 {
     $_SESSION['texteSource'] = $_POST['texteSource'];
 
-$key = '1a81e47191eb4038bd40b5e45cfd0f02';
+$key = '375a5935935c40e19a11f0fbe033e6a8';
 
 
 $u = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=";
